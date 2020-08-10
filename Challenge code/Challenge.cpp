@@ -1,24 +1,27 @@
-#include<stdio.h>
-#include<math.h>
+#include<iostream>
+using namespace std;
+#include<iomanip>
+#include<cmath>
 int main()
 {
 	int a, b, i, sum1, sum2;
 	int avg;
 	float avg1, avg2;
 	double SD1, SD2, variance1, variance2;
-	scanf("%d %d", &a, &b);
+	cin >> a >> b;
+	if(a!=b){
 	if (a > b)
 	{
 		i = a;
 		sum1 = 0;
 		while (i >= b)
 		{
-			printf("%d ", i);
+			cout << i<<" ";
 			sum1 += i;
 			i--;
 		}
-		avg1 = (double)sum1 / (double)(a - b + 1);
-		printf("\nAverage = %.1f", avg1);
+		avg1 = (double)sum1/(double)(a-b+1);
+		cout << "\n" <<"average = "<< avg1 << setprecision(2);
 
 		i = a;
 		variance1 = 0;
@@ -29,7 +32,7 @@ int main()
 		}
 		//printf("\n%lf",variance1);
 		SD1 = sqrt((double)variance1 / (double)(a - b + 1 - 1));
-		printf("\nSD = %.2lf", SD1);
+		cout << "\n" << fixed << setprecision(2) << "SD = " << SD1;
 	}
 	else if (a < b)
 	{
@@ -37,13 +40,13 @@ int main()
 		sum2 = 0;
 		while (i <= b)
 		{
-			printf("%d ", i);
+			cout << i << " ";
 			sum2 += i;
 			i++;
 		}
 		//printf("%d",sum2);
 		avg2 = (double)sum2 / (double)(b - a + 1);
-		printf("\nAverage = %.1f", avg2);
+		cout <<"\n"<< "average = " << avg2 << setprecision(2);
 
 		i = a;
 		variance2 = 0;
@@ -55,13 +58,14 @@ int main()
 		}
 		//printf("\n%lf",variance2);
 		SD2 = sqrt((double)variance2 / (double)(b - a + 1 - 1));
-		printf("\nSD = %.2lf", SD2);
+		cout << "\n" << fixed << setprecision(2) <<"SD = " << SD2;
+
 	}
-	else {
-		printf("%d", a);
-		avg = a;
-		printf("\n%d", a);
-		printf("\n%d", 0);
+
+	}
+	else 
+	{
+		cout << " ";
 	}
 	return 0;
 }
